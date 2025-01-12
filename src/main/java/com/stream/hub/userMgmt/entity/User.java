@@ -1,15 +1,18 @@
 package com.stream.hub.userMgmt.entity;
 
+import com.stream.hub.userMgmt.attributeConvertor.ListToStringConvertor;
 import com.stream.hub.userMgmt.enums.UserRole;
+import com.stream.hub.userMgmt.enums.UserStatus;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 
-@Entity
+
+@Entity(name = "users")
 @Data
 public class User {
 
@@ -30,17 +33,23 @@ public class User {
 
     private String fullName;
 
+    @Convert(converter = ListToStringConvertor.class)
     private List<String> songPreferences;
 
+    @Convert(converter = ListToStringConvertor.class)
     private List<String> videoPreferences;
 
     @CreationTimestamp
-    private Timestamp createdOn;
+    private LocalDateTime createdOn;
 
     @UpdateTimestamp
-    private Timestamp updatedOn;
+    private LocalDateTime updatedOn;
 
+    @Enumerated(EnumType.STRING)
     private UserRole role;
+
+    @Enumerated(EnumType.STRING)
+    private UserStatus status;
 
 
     @Override

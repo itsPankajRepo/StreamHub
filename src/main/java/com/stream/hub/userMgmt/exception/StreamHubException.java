@@ -18,4 +18,6 @@ public class StreamHubException extends RuntimeException{
 
     private String message;
 
+    private int statusCode;
+
 }

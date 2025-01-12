@@ -1,15 +1,13 @@
 package com.stream.hub.userMgmt.dto.genric;
 
-import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.io.Serial;
 import java.io.Serializable;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+@JsonInclude(value = JsonInclude.Include.NON_NULL)
 public class ApiResponse<T> implements Serializable {
 
     @Serial
@@ -26,4 +24,10 @@ public class ApiResponse<T> implements Serializable {
         this.statusCode = statusCode;
     }
 
+    public ApiResponse(String message, int statusCode, String status, T result) {
+        this.message = message;
+        this.statusCode = statusCode;
+        this.status = status;
+        this.result = result;
+    }
 }

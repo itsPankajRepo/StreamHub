@@ -18,4 +18,8 @@ public final class RequestURIConstants {
 
 
     public static final String GET_USER_PROFILE = "me";
+    public static final String UPDATE_USER_PROFILE = "update-profile";
+    public static final String DELETE_USER_ACCOUNT = "delete-account";
+    public static final String ENABLE_USER_ACCOUNT = "enable-account";
+    public static final String UPDATE_ROLE = "update-role";
 }

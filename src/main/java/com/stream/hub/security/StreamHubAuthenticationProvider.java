@@ -27,7 +27,7 @@ public class StreamHubAuthenticationProvider implements AuthenticationProvider {
         if (passwordEncoder.matches(authentication.getCredentials().toString(), user.getPassword())) {
             return new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
         }
-        throw new BadCredentialsException("Bad credentials for username + " + authentication.getName());
+        throw new BadCredentialsException("Bad credentials for username : " + authentication.getName());
     }
 
 

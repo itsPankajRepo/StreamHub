@@ -26,18 +26,31 @@ public class UserSignUpRequest {
     @NotNull(message = MessageConstant.MANDATORY_FIELDS_NOT_FOUND)
     private Integer age;
 
+    @Override
+    public String toString() {
+        return "UserSignUpRequest{" +
+                "username='" + username + '\'' +
+                ", password='" + "***password***" + '\'' +
+                ", age=" + age +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", songPreferences=" + songPreferences +
+                ", videoPreferences=" + videoPreferences +
+                ", role=" + role +
+                '}';
+    }
+
     @NotNull(message = MessageConstant.MANDATORY_FIELDS_NOT_FOUND)
     @NotEmpty(message = MessageConstant.MANDATORY_FIELD_IS_EMPTY)
     private String firstName;
 
-    private String LastName;
+    private String lastName;
 
     private List<String> songPreferences;
 
     private List<String> videoPreferences;
 
     @NotNull(message = MessageConstant.MANDATORY_FIELDS_NOT_FOUND)
-    @NotEmpty(message = MessageConstant.MANDATORY_FIELD_IS_EMPTY)
     private UserRole role;
 
 
